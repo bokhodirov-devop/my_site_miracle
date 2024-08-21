@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Project Detail</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'course_list' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'course_list' %}">Projects</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">{{ course.name }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Course Detail Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="position-relative overflow-hidden mb-4">
+                        <img class="img-fluid w-100" src="{{ course.image.url }}" alt="{{ course.name }}">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 mb-4">{{ course.name }}</h2>
+                    <p class="text-primary fw-medium mb-2">{{ course.category.name }}</p>
+                    <p class="mb-4">{{ course.context }}</p>
+                    <ul class="list-unstyled">
+                        <li><strong>Number of Lessons:</strong> {{ course.lesson_count }}</li>
+                        <li><strong>Educational Form:</strong> {{ course.educations_form }}</li>
+                        <li><strong>Lesson Time:</strong> {{ course.lesson_time }}</li>
+                        <li><strong>Created At:</strong> {{ course.created_at }}</li>
+                        <li><strong>Updated At:</strong> {{ course.updated_at }}</li>
+                        <li class="breadcrumb-item"><a class="text-white" href="{% url 'course_list' %}">back</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Course Detail End -->
+{% endblock %}
